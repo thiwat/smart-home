@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 app.use(body.urlencoded({ extended: true }))
 app.use(body.json())
 
-mongoose.connect('mongodb://localHost/smartHome', { useNewUrlParser: true })
+mongoose.connect(`mongodb://${process.env.MONGO_HOST}`, { useNewUrlParser: true })
 require('./api/models/usersModel')
 
 let userRoutes = require('./api/routes/usersRoute')
