@@ -11,6 +11,9 @@ const usersSchema = new Schema ({
     },
     name: {
         type: String
+    },
+    role: {
+        type: String
     }
 })
 
