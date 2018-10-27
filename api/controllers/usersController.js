@@ -28,8 +28,9 @@ exports.login = async function(req, res) {
     }
     
     const refreshToken = hash.hmac(userInput.username)
+    const expireTime = 14 * 24 * 60 * 60 // 14 days
     await hmset(refreshToken, {name: user.name, role: user.role})
-    await expire(refreshToken, 20 * 1000)
+    await expire(refreshToken, expireTime) 
 
     res.json({ message: "Success", refreshToken })
 }
