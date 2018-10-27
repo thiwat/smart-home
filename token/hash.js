@@ -7,6 +7,8 @@ function hmac(message) {
     return crypto.createHmac('sha1', PRIVATE_KEY).update(message).digest('hex')
 }
 
+exports.hmac = hmac
+
 exports.salt = function(username) {
     let timeStamp = Math.floor( new Date() )
     let message = `${timeStamp}${SALT}${username}`
@@ -15,4 +17,5 @@ exports.salt = function(username) {
 
 exports.password = function(password, salt) {
     let message = `${password}${SALT}${salt}`
+    return hmac(message)
 }
