@@ -1,6 +1,6 @@
-var redis = require('redis')
-var client = redis.createClient({ host: process.env.REDIS_HOST })
-var { promisify } = require('util')
+const redis = require('redis')
+const client = redis.createClient({ host: process.env.REDIS_HOST })
+const { promisify } = require('util')
 
 client.auth(process.env.REDIS_PWD)
 

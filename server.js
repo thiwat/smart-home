@@ -7,10 +7,10 @@ const mongoose = require('mongoose')
 app.use(body.urlencoded({ extended: true }))
 app.use(body.json())
 
-mongoose.connect(`mongodb://${process.env.MONGO_HOST}`, { useNewUrlParser: true })
+mongoose.connect(`mongodb://${process.env.MONGO_HOST}/myapp`, { useNewUrlParser: true })
 require('./api/models/usersModel')
 
-let userRoutes = require('./api/routes/usersRoute')
+const userRoutes = require('./api/routes/usersRoute')
 userRoutes(app)
 
 app.listen(port)
