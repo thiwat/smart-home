@@ -8,4 +8,6 @@ exports.get = promisify(client.get).bind(client)
 
 exports.hmset = promisify(client.hmset).bind(client)
 
+exports.hgetall = promisify(client.hgetall).bind(client)
+
 exports.expire = promisify(client.expire).bind(client)
