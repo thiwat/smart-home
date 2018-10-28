@@ -14,4 +14,5 @@ require('./api/models/usersModel')
 const userRoutes = require('./api/routes/usersRoute')
 userRoutes(app)
 
+console.log("Server is start on port " + port)
 app.listen(port)
