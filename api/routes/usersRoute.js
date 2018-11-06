@@ -1,6 +1,6 @@
 'use strict'
 
-const { checkKey } = require('../../token/auth')
+const { checkKey, checkRefreshToken } = require('../../token/auth')
 
 module.exports = function(app) {
     const users = require('../controllers/usersController')
@@ -9,5 +9,10 @@ module.exports = function(app) {
 
     app.route('/register')
         .post(checkKey, users.register)
+
+    app.route('/check')
+        .get(checkKey, checkRefreshToken(), function(req, res) {
+            res.json({ message: "Success"})
+        })
 
 }
